@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    @import "https://unpkg.com/open-props" layer(design.system);
+@import "https://unpkg.com/open-props/normalize.min.css" layer(demo.support);
+
+@layer demo {
+  .box {
+    /* 
+      gradient from top to bottom
+      it's opaque in the middle 
+      looks like it thins as it fades out
+    */
+    border-image: 
+      linear-gradient(
+        transparent, 
+        var(--indigo-6), 
+        transparent
+      ) 
+      1 / 4px /* slice n' size */
+    ;
+    
+    font-size: 15vw;
+    font-weight: bolder;
+    padding-inline: 1ch;
+  }
+}
+
+@layer demo.support {
+  body {
+    display: grid;
+    place-content: center;
+  } 
+}
+</style>
+<body>
+    <div class="box">LIGHT</div>
+</body>
+</html>
